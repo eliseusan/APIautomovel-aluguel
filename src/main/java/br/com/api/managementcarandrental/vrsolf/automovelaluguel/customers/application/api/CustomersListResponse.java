@@ -18,7 +18,7 @@ public class CustomersListResponse {
 	private String driver_license;
 	private String adress;
 	private String phone_number;
-	
+
 	public CustomersListResponse(Customers customers) {
 		this.id = customers.getId();
 		this.name = customers.getName();
@@ -28,9 +28,9 @@ public class CustomersListResponse {
 		this.adress = customers.getAdress();
 		this.phone_number = customers.getPhone_number();
 	}
-	
+
 	public static List<CustomersListResponse> converte(List<Customers> customers) {
-		
+
 		return customers.stream()
 				.map(CustomersListResponse::new)
 				.collect(Collectors.toList());

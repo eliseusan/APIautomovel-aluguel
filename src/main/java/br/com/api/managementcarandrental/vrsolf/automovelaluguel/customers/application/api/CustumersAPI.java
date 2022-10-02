@@ -27,15 +27,15 @@ public interface CustumersAPI {
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
 	List<CustomersListResponse> getTodosCustomers();
-	
+
 	@GetMapping(value = "/{id}")
 	@ResponseStatus(code = HttpStatus.OK)
 	CustomersDetalhadoResponse getCustomersAtravesId(@PathVariable UUID id);
-	
+
 	@DeleteMapping(value = "/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void deletaCustomerseAtravesId(@PathVariable UUID id);
-	
+	void deletaCustomersAtravesId(@PathVariable UUID id);
+
 	@PatchMapping(value = "/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void patchAlteraCustomers(@PathVariable UUID id,

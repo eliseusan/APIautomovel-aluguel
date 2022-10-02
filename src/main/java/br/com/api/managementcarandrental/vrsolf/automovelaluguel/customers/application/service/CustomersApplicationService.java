@@ -24,9 +24,9 @@ public class CustomersApplicationService implements CustomersService {
 
 	@Override
 	public CustomersResponse criaCustomers(CustomersRequest customersRequest) {
-		log.info("[start] CustomersApplicationService criaCustomers ");
+		log.info("[start] CustomersApplicationService - criaCustomers ");
 		Customers customers = customersRepository.salva(new Customers(customersRequest));
-		log.info("[finish] CustomersApplicationService criaCustomers ");
+		log.info("[finish] CustomersApplicationService - criaCustomers ");
 		return CustomersResponse.builder()
 				.id(customers.getId())
 				.build();
@@ -34,37 +34,37 @@ public class CustomersApplicationService implements CustomersService {
 
 	@Override
 	public List<CustomersListResponse> buscaTodosCustomers() {
-		log.info("[start] CustomersApplicationService buscaTodosCustomers ");
+		log.info("[start] CustomersApplicationService - buscaTodosCustomers ");
 		List<Customers>customers = customersRepository.buscaTodosCustomers();
-		log.info("[finish] CustomersApplicationService buscaTodosCustomers ");
+		log.info("[finish] CustomersApplicationService - buscaTodosCustomers ");
 		return CustomersListResponse.converte(customers);
 	}
 
 	@Override
 	public CustomersDetalhadoResponse buscaCustomersAtravesId(UUID id) {
-		log.info("[start] CustomersApplicationService buscaCustomersAtravesId ");
+		log.info("[start] CustomersApplicationService - buscaCustomersAtravesId ");
 		Customers customers = customersRepository.buscaCustomersAtravesId(id);
-		log.info("[finish] CustomersApplicationService buscaCustomersAtravesId ");
+		log.info("[finish] CustomersApplicationService - buscaCustomersAtravesId ");
 		return new CustomersDetalhadoResponse(customers);
 	}
 
 	@Override
 	public void deletaCustomersAtravesId(UUID id) {
-		log.info("[start] CustomersApplicationService deletaCustomersAtravesId ");
+		log.info("[start] CustomersApplicationService - deletaCustomersAtravesId ");
 		Customers customers = customersRepository.buscaCustomersAtravesId(id);
 		customersRepository.deletaCustomers(customers);
-		log.info("[finish] CustomersApplicationService deletaCustomersAtravesId ");
-		
+		log.info("[finish] CustomersApplicationService - deletaCustomersAtravesId ");
+
 	}
 
 	@Override
 	public void patchAlteraCustomers(UUID id, CustomersAlteracaoRequest customersAlteracaoRequest) {
-		log.info("[start] CustomersApplicationService patchAlteraCustomers ");
+		log.info("[start] CustomersApplicationService - patchAlteraCustomers ");
 		Customers customers = customersRepository.buscaCustomersAtravesId(id);
 		customers.altera(customersAlteracaoRequest);
 		customersRepository.salva(customers);
-		log.info("[finish] CustomersApplicationService patchAlteraCustomers ");
-		
+		log.info("[finish] CustomersApplicationService - patchAlteraCustomers ");
+
 	}
 
 }

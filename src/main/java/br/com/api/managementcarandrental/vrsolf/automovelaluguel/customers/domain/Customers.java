@@ -42,7 +42,7 @@ public class Customers {
 	private String adress;
 	@NotBlank
 	private String phone_number;
-	
+
 	private LocalDateTime created_at;
 	private LocalDateTime update_at;
 

@@ -41,16 +41,16 @@ public class CustomersController implements CustumersAPI {
 		log.info("[idCustomers] {}", id);
 		CustomersDetalhadoResponse clienteDetalhado = customersService.buscaCustomersAtravesId(id);
 		log.info("[finish] CustomersController - getCustomersAtravesId");
-		
+
 		return clienteDetalhado;
 	}
 
 	@Override
-	public void deletaCustomerseAtravesId(UUID id) {
-		log.info("[start] CustomersController - deletaCustomerseAtravesId");
+	public void deletaCustomersAtravesId(UUID id) {
+		log.info("[start] CustomersController - deletaCustomersAtravesId");
 		log.info("[idCustomers] {}", id);
 		customersService.deletaCustomersAtravesId(id);
-		log.info("[finish] CustomersController - deletaCustomerseAtravesId");
+		log.info("[finish] CustomersController - deletaCustomersAtravesId");
 
 	}
 
@@ -60,7 +60,7 @@ public class CustomersController implements CustumersAPI {
 		log.info("[idCustomers] {}", id);
 		customersService.patchAlteraCustomers(id, clienteAlteracaoRequest);
 		log.info("[finish] CustomersController - patchAlteraCustomers");
-		
+
 	}
 
 }

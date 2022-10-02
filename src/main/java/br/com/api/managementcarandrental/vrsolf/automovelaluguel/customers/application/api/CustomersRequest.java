@@ -10,7 +10,7 @@ import lombok.Value;
 
 @Value
 public class CustomersRequest {
-	
+
 	@NotBlank
 	private String name;
 	@NotNull
@@ -23,5 +23,5 @@ public class CustomersRequest {
 	private String adress;
 	@NotBlank
 	private String phone_number;
-	
+
 }

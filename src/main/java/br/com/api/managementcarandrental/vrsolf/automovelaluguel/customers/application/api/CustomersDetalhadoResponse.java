@@ -17,7 +17,7 @@ public class CustomersDetalhadoResponse {
 	private String adress;
 	private String phone_number;
 	private LocalDateTime created_at;
-	
+
 	public CustomersDetalhadoResponse(Customers customers) {
 		this.id = customers.getId();
 		this.name = customers.getName();
@@ -27,8 +27,8 @@ public class CustomersDetalhadoResponse {
 		this.adress = customers.getAdress();
 		this.phone_number = customers.getPhone_number();
 		this.created_at = customers.getCreated_at();
-		
+
 	}
-	
+
 
 }

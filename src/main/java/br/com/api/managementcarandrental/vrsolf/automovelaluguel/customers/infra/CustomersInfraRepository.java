@@ -22,38 +22,38 @@ public class CustomersInfraRepository implements CustomersRepository {
 
 	@Override
 	public Customers salva(Customers customers) {
-		log.info("[start] CustomersInfraRepository salva");
+		log.info("[start] CustomersInfraRepository - salva");
 		try {
 			customersSpringDataJPARepository.save(customers);
 		}catch (DataIntegrityViolationException e) {
 			throw APIException.build(HttpStatus.BAD_REQUEST,"Existem dados duplicados", e);
 		}
-		log.info("[finish] CustomersInfraRepository salva");
+		log.info("[finish] CustomersInfraRepository - salva");
 		return customers;
 	}
 
 	@Override
 	public List<Customers> buscaTodosCustomers() {
-		log.info("[start] CustomersInfraRepository buscaTodosCustomers");
+		log.info("[start] CustomersInfraRepository - buscaTodosCustomers");
 		List<Customers> todosCustomers = customersSpringDataJPARepository.findAll();
-		log.info("[finish] CustomersInfraRepository buscaTodosCustomers");
+		log.info("[finish] CustomersInfraRepository - buscaTodosCustomers");
 		return todosCustomers;
 	}
 
 	@Override
 	public Customers buscaCustomersAtravesId(UUID id) {
-		log.info("[start] CustomersInfraRepository buscaCustomersAtravesId");
+		log.info("[start] CustomersInfraRepository - buscaCustomersAtravesId");
 		Customers customers = customersSpringDataJPARepository.findById(id)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado !")) ;
-		log.info("[finish] CustomersInfraRepository buscaCustomersAtravesId");
+		log.info("[finish] CustomersInfraRepository - buscaCustomersAtravesId");
 		return customers;
 	}
-	
+
 	@Override
 	public void deletaCustomers(Customers customers) {
-		log.info("[start] CustomersInfraRepository deletaCustomers");
+		log.info("[start] CustomersInfraRepository - deletaCustomers");
 		customersSpringDataJPARepository.delete(customers);
-		log.info("[finish] CustomersInfraRepository deletaCustomers");
+		log.info("[finish] CustomersInfraRepository - deletaCustomers");
 	}
 
 }
