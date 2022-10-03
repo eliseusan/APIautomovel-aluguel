@@ -1,10 +1,12 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.brand.application.api.BrandResponse;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesListResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.repository.CategoriesRepository;
@@ -27,6 +29,14 @@ public class CategoriesApplicationService implements CategoriesService {
 		return CategoriesResponse.builder()
 				.id(categories.getId())
 				.build();
+	}
+
+	@Override
+	public List<CategoriesListResponse> buscaTodasCategories() {
+		log.info("[start] CategoriesApplicationService - buscaTodosCategories ");
+		List<Categories>categories = categoriesRepository.buscaTodasCategories();
+		log.info("[start] CategoriesApplicationService - buscaTodosCategories ");
+		return CategoriesListResponse.converte(categories);
 	}
 
 }

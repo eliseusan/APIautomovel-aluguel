@@ -1,9 +1,12 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.infra;
 
+import java.util.List;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.brand.domain.Brand;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.repository.CategoriesRepository;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.domain.Categories;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.handler.APIException;
@@ -28,6 +31,14 @@ public class CategoriesInfraRepository implements CategoriesRepository {
 		log.info("[finish] CategoriesSpringDataJPARepository - salva");
 		return categories;
 
+	}
+
+	@Override
+	public List<Categories> buscaTodasCategories() {
+		log.info("[start] CategoriesSpringDataJPARepository - buscaTodasCategories");
+		List<Categories> todasCategories = categoriesSpringDataJPARepository.findAll();
+		log.info("[finish] CategoriesSpringDataJPARepository - buscaTodasCategories");
+		return todasCategories;
 	}
 
 }

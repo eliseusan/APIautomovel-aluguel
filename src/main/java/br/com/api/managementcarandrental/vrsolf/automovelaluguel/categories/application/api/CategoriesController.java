@@ -1,5 +1,7 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +23,14 @@ public class CategoriesController implements CategoriesAPI {
 		CategoriesResponse categoriesResponse = categoriesService.criaCategories(categoriesRequest);
 		log.info("[finish] CategoriesController - postCategories");
 		return categoriesResponse;
+	}
+
+	@Override
+	public List<CategoriesListResponse> getTodasCategories() {
+		log.info("[start] CategoriesController - getTodasCategories");
+		List<CategoriesListResponse> categories = categoriesService.buscaTodasCategories();
+		log.info("[finish] CategoriesController - getTodasCategories");
+		return categories;
 	}
 
 }
