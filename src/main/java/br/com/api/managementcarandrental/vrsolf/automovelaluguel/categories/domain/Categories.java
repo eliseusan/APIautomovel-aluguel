@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesAlteracaoRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -38,5 +39,12 @@ public class Categories {
 		this.name = categoriesRequest.getName();
 		this.description = categoriesRequest.getDescription();
 		this.created_at = LocalDateTime.now();
+	}
+
+	public void altera(CategoriesAlteracaoRequest categoriesAlteracaoRequest) {
+		this.name = categoriesAlteracaoRequest.getName();
+		this.description = categoriesAlteracaoRequest.getDescription();
+		this.update_at = LocalDateTime.now();
+		
 	}
 }

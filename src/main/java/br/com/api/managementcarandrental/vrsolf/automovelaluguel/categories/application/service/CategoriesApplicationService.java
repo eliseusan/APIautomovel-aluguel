@@ -1,11 +1,16 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.brand.application.api.BrandDetalhadoResponse;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.brand.domain.Brand;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesAlteracaoRequest;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesDetalhadoResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesListResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.api.CategoriesResponse;
@@ -35,8 +40,35 @@ public class CategoriesApplicationService implements CategoriesService {
 	public List<CategoriesListResponse> buscaTodasCategories() {
 		log.info("[start] CategoriesApplicationService - buscaTodosCategories ");
 		List<Categories>categories = categoriesRepository.buscaTodasCategories();
-		log.info("[start] CategoriesApplicationService - buscaTodosCategories ");
+		log.info("[finish] CategoriesApplicationService - buscaTodosCategories ");
 		return CategoriesListResponse.converte(categories);
+	}
+
+	@Override
+	public CategoriesDetalhadoResponse getCategoriesAtravesId(UUID id) {
+		log.info("[start] CategoriesApplicationService - getCategoriesAtravesId ");
+		Categories categories = categoriesRepository.buscaCategoriesAtravesId(id);
+		log.info("[start] CategoriesApplicationService - getCategoriesAtravesId ");
+		return new CategoriesDetalhadoResponse(categories);
+	}
+
+	@Override
+	public void deletaCategoriesAtravesId(UUID id) {
+		log.info("[start] BrandApplicationService - deletaBrandAtravesId ");
+		Categories categories = categoriesRepository.buscaCategoriesAtravesId(id);
+		categoriesRepository.deletaCategories(categories);
+		log.info("[finish] BrandApplicationService - deletaBrandAtravesId ");
+		
+	}
+
+	@Override
+	public void patchAlteraCategories(UUID id, @Valid CategoriesAlteracaoRequest categoriesAlteracaoRequest) {
+		log.info("[start] BrandApplicationService - patchAlteraBrand ");
+		Categories categories = categoriesRepository.buscaCategoriesAtravesId(id);
+		categories.altera(categoriesAlteracaoRequest);
+		categoriesRepository.salva(categories);
+		log.info("[finish] BrandApplicationService - patchAlteraBrand ");
+		
 	}
 
 }

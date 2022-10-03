@@ -1,12 +1,12 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.brand.domain.Brand;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.application.repository.CategoriesRepository;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.domain.Categories;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.handler.APIException;
@@ -39,6 +39,22 @@ public class CategoriesInfraRepository implements CategoriesRepository {
 		List<Categories> todasCategories = categoriesSpringDataJPARepository.findAll();
 		log.info("[finish] CategoriesSpringDataJPARepository - buscaTodasCategories");
 		return todasCategories;
+	}
+
+	@Override
+	public Categories buscaCategoriesAtravesId(UUID id) {
+		log.info("[start] CategoriesSpringDataJPARepository - buscaCategoriesAtravesId");
+		Categories categories = categoriesSpringDataJPARepository.findById(id)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado !")) ;
+		log.info("[finish] CategoriesSpringDataJPARepository - buscaCategoriesAtravesId");
+		return categories;
+	}
+
+	@Override
+	public void deletaCategories(Categories categories) {
+		log.info("[start] CategoriesSpringDataJPARepository - deletaCategories");
+		categoriesSpringDataJPARepository.delete(categories);
+		log.info("[finish] CategoriesSpringDataJPARepository - deletaCategories");
 	}
 
 }
