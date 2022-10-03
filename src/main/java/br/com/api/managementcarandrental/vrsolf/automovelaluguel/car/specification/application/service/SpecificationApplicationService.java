@@ -1,4 +1,4 @@
-package br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.service;
+package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,13 +7,13 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api.SpecificationAlteracaoRequest;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api.SpecificationDetalhadoResponse;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api.SpecificationListResponse;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api.SpecificationRequest;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api.SpecificationResponse;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.repository.SpecificationRepository;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.domain.Specification;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api.SpecificationAlteracaoRequest;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api.SpecificationDetalhadoResponse;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api.SpecificationListResponse;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api.SpecificationRequest;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api.SpecificationResponse;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.repository.SpecificationRepository;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.domain.Specification;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

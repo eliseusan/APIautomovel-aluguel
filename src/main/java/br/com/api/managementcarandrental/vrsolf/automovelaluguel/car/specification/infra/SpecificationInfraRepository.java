@@ -1,4 +1,4 @@
-package br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.infra;
+package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.infra;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,9 +7,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.repository.SpecificationRepository;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.domain.Specification;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.handler.APIException;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.repository.SpecificationRepository;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.domain.Specification;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

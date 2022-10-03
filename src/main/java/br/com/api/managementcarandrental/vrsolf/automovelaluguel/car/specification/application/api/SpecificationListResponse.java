@@ -1,11 +1,10 @@
-package br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api;
+package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.categories.domain.Categories;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.domain.Specification;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.domain.Specification;
 import lombok.Value;
 @Value
 public class SpecificationListResponse {

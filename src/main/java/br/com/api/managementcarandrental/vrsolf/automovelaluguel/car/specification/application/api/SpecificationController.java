@@ -1,4 +1,4 @@
-package br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api;
+package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,7 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.service.SpecificationService;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.service.SpecificationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

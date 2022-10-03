@@ -1,4 +1,4 @@
-package br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.domain;
+package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -10,8 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api.SpecificationAlteracaoRequest;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api.SpecificationRequest;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api.SpecificationAlteracaoRequest;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api.SpecificationRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

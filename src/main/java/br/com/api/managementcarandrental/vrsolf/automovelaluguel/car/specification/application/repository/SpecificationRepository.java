@@ -1,9 +1,9 @@
-package br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.repository;
+package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.repository;
 
 import java.util.List;
 import java.util.UUID;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.domain.Specification;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.domain.Specification;
 
 public interface SpecificationRepository {
 

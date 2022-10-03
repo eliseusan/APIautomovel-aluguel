@@ -1,4 +1,4 @@
-package br.com.api.managementcarandrental.vrsolf.automovelaluguel.specification.application.api;
+package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.specification.application.api;
 
 import java.util.UUID;
 
