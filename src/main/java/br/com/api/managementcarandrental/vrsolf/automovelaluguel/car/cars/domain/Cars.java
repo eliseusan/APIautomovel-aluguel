@@ -32,6 +32,7 @@ public class Cars {
     private String description;
     private BigDecimal daily_rate;
     private Double avaliable;
+    @Column(unique = true)
     private String license_plate;
     
     @NotNull
@@ -57,8 +58,4 @@ public class Cars {
         this.created_at = LocalDateTime.now();
     }
 
-
-  
-    
-    
 }

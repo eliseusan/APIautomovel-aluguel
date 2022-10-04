@@ -9,5 +9,6 @@ public interface CarsRepository {
     Cars salvaCar(Cars cars);
     List<Cars> buscaTodosCars();
     Cars buscaCarAtravesId(UUID id);
+    void deletaCars(Cars car);
 
 }

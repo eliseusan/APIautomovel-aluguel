@@ -15,6 +15,7 @@ public interface CarsService {
     CarsResponse criaCar(UUID brand_id, UUID categories_id, @Valid CarsRequest carsRequest);
     List<CarsListResponse> buscaTodosCars();
     CarDetalhadoResponse buscaCarAtravesId(UUID id);
+    void deletaCarAtravesId(UUID id);
 
 
 

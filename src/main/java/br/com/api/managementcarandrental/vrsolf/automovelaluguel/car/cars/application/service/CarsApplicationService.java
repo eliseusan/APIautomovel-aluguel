@@ -49,10 +49,19 @@ public class CarsApplicationService implements CarsService {
 
     @Override
     public CarDetalhadoResponse buscaCarAtravesId(UUID id) {
-        log.info("[start] BrandApplicationService - buscaCarAtravesId ");
+        log.info("[start] CarsApplicationService - buscaCarAtravesId ");
         Cars car = carsRepository.buscaCarAtravesId(id);
-        log.info("[finish] BrandApplicationService - buscaCarAtravesId ");
+        log.info("[finish] CarsApplicationService - buscaCarAtravesId ");
         return new CarDetalhadoResponse(car);
+    }
+
+    @Override
+    public void deletaCarAtravesId(UUID id) {
+        log.info("[start] BrandApplicationService - deletaBrandAtravesId ");
+        Cars car = carsRepository.buscaCarAtravesId(id);
+        carsRepository.deletaCars(car);
+        log.info("[finish] BrandApplicationService - deletaBrandAtravesId ");
+        
     }
     
   
