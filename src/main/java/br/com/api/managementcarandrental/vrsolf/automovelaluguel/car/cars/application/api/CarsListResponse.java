@@ -9,7 +9,7 @@ import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.domain
 import lombok.Value;
 
 @Value
-public class CarListResponse {
+public class CarsListResponse {
     private UUID id;
     private String name;
     private String description;
@@ -20,7 +20,7 @@ public class CarListResponse {
     private UUID brand_id ;
     private UUID categories_id ;
 
-    public CarListResponse(Cars cars) {
+    public CarsListResponse(Cars cars) {
         this.id = cars.getId();
         this.name = cars.getName();
         this.description = cars.getDescription();
@@ -32,9 +32,9 @@ public class CarListResponse {
         this.color = cars.getColor();
     }
 
-    public static List<CarListResponse> converte(List<Cars> cars) {
+    public static List<CarsListResponse> converte(List<Cars> cars) {
         return cars.stream()
-                .map(CarListResponse::new)
+                .map(CarsListResponse::new)
                 .collect(Collectors.toList());
     }
 }

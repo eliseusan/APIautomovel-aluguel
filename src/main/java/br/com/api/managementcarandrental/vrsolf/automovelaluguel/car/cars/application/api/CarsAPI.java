@@ -1,6 +1,5 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.application.api.BrandListResponse;
-
 @RestController
 @RequestMapping("/v1/cars")
 public interface CarsAPI {
@@ -29,7 +26,10 @@ public interface CarsAPI {
     
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    Collection<CarListResponse> getCarComId();
+    List<CarsListResponse> getCarComId();
 
+    @GetMapping(value = "/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    CarDetalhadoResponse getCarAtravesId(@PathVariable UUID id);
   
 }

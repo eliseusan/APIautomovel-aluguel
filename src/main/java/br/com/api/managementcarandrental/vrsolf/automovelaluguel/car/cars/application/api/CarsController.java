@@ -31,11 +31,20 @@ public class CarsController implements CarsAPI {
     }
 
     @Override
-    public List<CarListResponse> getCarComId() {
-        log.info("[start] CarsController - postCar");
-        List<CarListResponse> cars = carsService.buscaTodosCars();
-        log.info("[finish] CarsController - postCar");
+    public List<CarsListResponse> getCarComId() {
+        log.info("[start] CarsController - getCarComId");
+        List<CarsListResponse> cars = carsService.buscaTodosCars();
+        log.info("[finish] CarsController - getCarComId");
         return cars;
+    }
+
+    @Override
+    public CarDetalhadoResponse getCarAtravesId(UUID id) {
+        log.info("[start] CarsController - getCarComId");
+        log.info("[idBrand] {}", id);
+        CarDetalhadoResponse carDetalhado = carsService.buscaCarAtravesId(id);
+        log.info("[start] CarsController - getCarComId");
+        return carDetalhado;
     }
 
     
