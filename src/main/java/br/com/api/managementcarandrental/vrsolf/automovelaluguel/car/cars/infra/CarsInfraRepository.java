@@ -1,7 +1,10 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.domain.Brand;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.repository.CarsRepository;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.domain.Cars;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +24,13 @@ public class CarsInfraRepository implements CarsRepository {
         log.info("[finish] CarsInfraRepository - salvaCar");
         return cars;
      
+    }
+
+    @Override
+    public List<Cars> buscaTodosCars() {
+        log.info("[start] BrandInfraRepository - buscaTodosCars");
+        List<Cars> todosCars = carsSpringDataJPARepository.findAll();
+        log.info("[finish] BrandInfraRepository - buscaTodosCars");
+        return todosCars;
     }
 }
