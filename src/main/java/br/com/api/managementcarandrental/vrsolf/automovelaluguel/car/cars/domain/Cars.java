@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarAlteracaoRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarsRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -56,6 +57,17 @@ public class Cars {
         this.categories_id = categories_id;
         this.color = carsRequest.getColor();
         this.created_at = LocalDateTime.now();
+    }
+
+    public void altera(@Valid CarAlteracaoRequest carAlteracaoRequest) {
+        this.name = carAlteracaoRequest.getName();
+        this.description = carAlteracaoRequest.getDescription();
+        this.daily_rate = carAlteracaoRequest.getDaily_rate();
+        this.avaliable = carAlteracaoRequest.getAvaliable();
+        this.license_plate = carAlteracaoRequest.getLicense_plate();
+        this.color = carAlteracaoRequest.getColor();
+        this.update_at = LocalDateTime.now();
+        
     }
 
 }

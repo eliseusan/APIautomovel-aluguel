@@ -42,7 +42,7 @@ public class CarsController implements CarsAPI {
         log.info("[start] CarsController - getCarComId");
         log.info("[idCar] {}", id);
         CarDetalhadoResponse carDetalhado = carsService.buscaCarAtravesId(id);
-        log.info("[start] CarsController - getCarComId");
+        log.info("[finish] CarsController - getCarComId");
         return carDetalhado;
     }
 
@@ -52,6 +52,15 @@ public class CarsController implements CarsAPI {
         log.info("[idCar] {}", id);
         carsService.deletaCarAtravesId(id);
         log.info("[finish] CarsController - deletaCarAtravesId");
+        
+    }
+
+    @Override
+    public void patchAlteraCar(UUID id, @Valid CarAlteracaoRequest carAlteracaoRequest) {
+        log.info("[start] CarsController - patchAlteraCar");
+        log.info("[idCar] {}", id);
+        carsService.patchAlteraCar(id,carAlteracaoRequest);
+        log.info("[finish] CarsController - patchAlteraCar");
         
     }
 

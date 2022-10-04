@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.application.api.BrandDetalhadoResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.application.service.BrandService;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.domain.Brand;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarAlteracaoRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarDetalhadoResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarsListResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarsRequest;
@@ -35,7 +36,7 @@ public class CarsApplicationService implements CarsService {
         categoriesService.getCategoriesAtravesId(categories_id);
         Cars car = carsRepository.salvaCar(new Cars(brand_id, categories_id, carsRequest));
         log.info("[finaliza] CarsApplicationService - criaCar");
-        return new CarsResponse(car.getId()) ;
+        return new CarsResponse(car.getId());
     }
 
     @Override
@@ -44,7 +45,7 @@ public class CarsApplicationService implements CarsService {
         List<Cars> cars = carsRepository.buscaTodosCars();
         log.info("[finish] CarsApplicationService - buscaTodosCars ");
         return CarsListResponse.converte(cars);
-       
+
     }
 
     @Override
@@ -61,8 +62,17 @@ public class CarsApplicationService implements CarsService {
         Cars car = carsRepository.buscaCarAtravesId(id);
         carsRepository.deletaCars(car);
         log.info("[finish] BrandApplicationService - deletaBrandAtravesId ");
-        
+
     }
-    
-  
+
+    @Override
+    public void patchAlteraCar(UUID id, @Valid CarAlteracaoRequest carAlteracaoRequest) {
+        log.info("[start] BrandApplicationService - patchAlteraCar ");
+        Cars car = carsRepository.buscaCarAtravesId(id);
+        car.altera(carAlteracaoRequest);
+        carsRepository.salvaCar(car);
+        log.info("[finish] BrandApplicationService - patchAlteraCar ");
+
+    }
+
 }
