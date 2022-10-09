@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.domain.Brand;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarAlteracaoRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.domain.Categories;
 import lombok.AccessLevel;
@@ -61,8 +62,14 @@ public class Cars {
         
     }
 
-
-    
-    
+    public void altera(@Valid CarAlteracaoRequest carAlteracaoRequest) {
+        this.name = carAlteracaoRequest.getName();
+        this.description = carAlteracaoRequest.getDescription();
+        this.daily_rate = carAlteracaoRequest.getDaily_rate();
+        this.avaliable = carAlteracaoRequest.getAvaliable();
+        this.license_plate = carAlteracaoRequest.getLicense_plate();
+        this.color = carAlteracaoRequest.getColor();
+        this.update_at = LocalDateTime.now();
+    }
     
 }

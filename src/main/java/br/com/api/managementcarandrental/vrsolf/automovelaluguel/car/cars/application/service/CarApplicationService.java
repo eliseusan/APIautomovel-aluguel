@@ -6,6 +6,8 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.domain.Brand;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarAlteracaoRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarDetalhadoResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarResponse;
@@ -38,12 +40,21 @@ public class CarApplicationService implements CarService {
         log.info("[finish] BrandApplicationService - buscaCarAtravesId ");
         return new CarDetalhadoResponse(car);
     }
+    
     @Override
     public void deletaCarAtravesId(UUID id) {
         log.info("[start] BrandApplicationService - deletaCarAtravesId ");
         Cars car = carRepository.buscaCarAtravesId(id);
         carRepository.deletaCarAtravesId(car);
         log.info("[finish] BrandApplicationService - deletaCarAtravesId ");
+    }
+    @Override
+    public void patchAlteraCar(UUID id, @Valid CarAlteracaoRequest carAlteracaoRequest) {
+        log.info("[start] BrandApplicationService - patchAlteraCar ");
+        Cars car = carRepository.buscaCarAtravesId(id);
+        car.altera(carAlteracaoRequest);
+        carRepository.salva(car);
+        log.info("[finish] BrandApplicationService - patchAlteraCar ");
         
     }
 }

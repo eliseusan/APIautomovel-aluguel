@@ -37,10 +37,18 @@ public class CarController implements CarsAPI {
 
     @Override
     public void deletaCarAtravesId(UUID id) {
-        log.info("[start] BrandController - deletaCarAtravesId");
+        log.info("[start] CarController - deletaCarAtravesId");
         log.info("[idBrand] {}", id);
         carService.deletaCarAtravesId(id);
-        log.info("[finish] BrandController - deletaCarAtravesId");
+        log.info("[finish] CarController - deletaCarAtravesId");
+    }
+
+    @Override
+    public void patchAlteraCar(UUID id, @Valid CarAlteracaoRequest carAlteracaoRequest) {
+        log.info("[start] CarController - patchAlteraCar");
+        log.info("[idBrand] {}", id);
+        carService.patchAlteraCar(id, carAlteracaoRequest);
+        log.info("[start] CarController - patchAlteraCar");
         
     }
 

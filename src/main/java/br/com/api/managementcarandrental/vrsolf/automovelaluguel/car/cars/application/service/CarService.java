@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarAlteracaoRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarDetalhadoResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarResponse;
@@ -15,4 +16,6 @@ public interface CarService {
     CarDetalhadoResponse buscaCarAtravesId(UUID id);
 
     void deletaCarAtravesId(UUID id);
+
+    void patchAlteraCar(UUID id, @Valid CarAlteracaoRequest carAlteracaoRequest);
 }
