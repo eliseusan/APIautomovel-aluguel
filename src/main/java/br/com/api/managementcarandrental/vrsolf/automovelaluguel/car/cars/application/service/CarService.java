@@ -13,4 +13,6 @@ public interface CarService {
     CarResponse criaCar(@Valid CarRequest carRequest);
 
     CarDetalhadoResponse buscaCarAtravesId(UUID id);
+
+    void deletaCarAtravesId(UUID id);
 }

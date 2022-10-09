@@ -41,4 +41,12 @@ public class CarInfraRepository implements CarRepository {
         return car;
     }
 
+    @Override
+    public void deletaCarAtravesId(Cars car) {
+        log.info("[start] CarInfraRepository - salva");
+        carSpringDataJPARepository.delete(car);
+        log.info("[finish] CarInfraRepository - salva");
+        
+    }
+
 }

@@ -6,16 +6,11 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.application.repository.BrandRepository;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.domain.Brand;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarDetalhadoResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api.CarResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.repository.CarRepository;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.domain.Cars;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.api.CategoriesDetalhadoResponse;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.repository.CategoriesRepository;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.domain.Categories;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -42,5 +37,13 @@ public class CarApplicationService implements CarService {
         Cars car = carRepository.buscaCarAtravesId(id);
         log.info("[finish] BrandApplicationService - buscaCarAtravesId ");
         return new CarDetalhadoResponse(car);
+    }
+    @Override
+    public void deletaCarAtravesId(UUID id) {
+        log.info("[start] BrandApplicationService - deletaCarAtravesId ");
+        Cars car = carRepository.buscaCarAtravesId(id);
+        carRepository.deletaCarAtravesId(car);
+        log.info("[finish] BrandApplicationService - deletaCarAtravesId ");
+        
     }
 }

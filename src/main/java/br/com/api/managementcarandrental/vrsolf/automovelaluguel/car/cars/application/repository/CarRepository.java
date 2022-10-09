@@ -10,4 +10,6 @@ public interface CarRepository {
 
     Cars buscaCarAtravesId(UUID id);
 
+    void deletaCarAtravesId(Cars car);
+
 }
