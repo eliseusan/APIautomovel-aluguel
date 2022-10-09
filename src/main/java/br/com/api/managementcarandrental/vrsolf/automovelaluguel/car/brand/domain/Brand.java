@@ -23,7 +23,7 @@ public class Brand {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "id_brand", updatable = false, unique = true, nullable = false)
 	private UUID id;
 	@NotBlank
 	private String name;
