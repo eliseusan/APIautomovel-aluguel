@@ -1,6 +1,7 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.domain.Brand;
@@ -10,6 +11,7 @@ import lombok.Value;
 
 @Value
 public class CarListResponse {
+    private UUID id ;
     private String name;
     private String description;
     private Double daily_rate;
@@ -18,11 +20,7 @@ public class CarListResponse {
     private Brand brand;
     private Categories categories;
     private String color;
-    
-    
-    
-    
-    
+
     public static List<CarListResponse> converte(List<Cars> cars) {
      
         return cars.stream()
@@ -32,7 +30,7 @@ public class CarListResponse {
     }
 
     public CarListResponse(Cars cars) {
-       
+        this.id = cars.getId();
         this.name = cars.getName();
         this.description = cars.getDescription();
         this.daily_rate = cars.getDaily_rate();

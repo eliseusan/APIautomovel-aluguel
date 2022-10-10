@@ -1,5 +1,7 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api;
 
+import java.util.UUID;
+
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.domain.Brand;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.domain.Cars;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.domain.Categories;
@@ -8,7 +10,7 @@ import lombok.Value;
 @Value
 public class CarDetalhadoResponse {
 
-    
+    private UUID id;
     private String name;
     private String description;
     private Double daily_rate;
@@ -19,6 +21,7 @@ public class CarDetalhadoResponse {
     private String color;
 
     public CarDetalhadoResponse(Cars cars) {
+        this.id = cars.getId();
         this.name = cars.getName();
         this.description = cars.getDescription();
         this.daily_rate = cars.getDaily_rate();
