@@ -1,5 +1,6 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.infra;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -47,6 +48,14 @@ public class CarInfraRepository implements CarRepository {
         carSpringDataJPARepository.delete(car);
         log.info("[finish] CarInfraRepository - salva");
         
+    }
+
+    @Override
+    public List<Cars> buscaTodasCars() {
+        log.info("[start] CarInfraRepository - salva");
+        List<Cars> todasCars = carSpringDataJPARepository.findAll();
+        log.info("[finish] CarInfraRepository - salva");
+        return todasCars;
     }
 
 }

@@ -1,5 +1,6 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.service.CarService;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.api.CategoriesDetalhadoResponse;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.api.CategoriesListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -50,6 +52,14 @@ public class CarController implements CarsAPI {
         carService.patchAlteraCar(id, carAlteracaoRequest);
         log.info("[start] CarController - patchAlteraCar");
         
+    }
+
+    @Override
+    public List<CarListResponse> getTodosCars() {
+        log.info("[start] CarController - getTodosCars");
+        List<CarListResponse> cars = carService.buscaTodosCars();
+        log.info("[finish] CarController - getTodosCars");
+        return cars;
     }
 
 }

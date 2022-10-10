@@ -1,5 +1,6 @@
 package br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -19,6 +20,7 @@ import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.appli
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.application.api.BrandRequest;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.brand.application.api.BrandResponse;
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.api.CategoriesDetalhadoResponse;
+import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.api.CategoriesListResponse;
 
 @RestController
 @RequestMapping("/v1/cars")
@@ -40,4 +42,8 @@ public interface CarsAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void patchAlteraCar(@PathVariable UUID id,
     @Valid @RequestBody CarAlteracaoRequest carAlteracaoRequest);
+    
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    List<CarListResponse> getTodosCars();
 }
