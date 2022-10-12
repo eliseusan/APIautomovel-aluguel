@@ -45,7 +45,7 @@ public class CategoriesInfraRepository implements CategoriesRepository {
 	public Categories buscaCategoriesAtravesId(UUID id) {
 		log.info("[start] CategoriesInfraRepository - buscaCategoriesAtravesId");
 		Categories categories = categoriesSpringDataJPARepository.findById(id)
-				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado !")) ;
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Categories não encontrado !")) ;
 		log.info("[finish] CategoriesInfraRepository - buscaCategoriesAtravesId");
 		return categories;
 	}
