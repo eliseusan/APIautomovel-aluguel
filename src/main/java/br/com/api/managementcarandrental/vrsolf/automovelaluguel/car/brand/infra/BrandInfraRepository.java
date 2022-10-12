@@ -44,7 +44,7 @@ public class BrandInfraRepository implements BrandRepository {
 	public Brand buscaBrandAtravesId(UUID id) {
 		log.info("[start] BrandInfraRepository - buscaBrandAtravesId");
 		Brand brand = brandSpringDataJPARepository.findById(id)
-				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado !")) ;
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Brand não encontrado !")) ;
 		log.info("[finish] BrandInfraRepository - buscaBrandAtravesId");
 		return brand;
 	}

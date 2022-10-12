@@ -8,8 +8,6 @@ import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.cars.application.service.CarService;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.api.CategoriesDetalhadoResponse;
-import br.com.api.managementcarandrental.vrsolf.automovelaluguel.car.categories.application.api.CategoriesListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

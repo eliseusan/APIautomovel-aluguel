@@ -33,6 +33,8 @@ public class CarApplicationService implements CarService {
     @Override
     public CarResponse criaCar(@Valid CarRequest carRequest) {
         log.info("[start] BrandApplicationService - criaBrand ");
+        brandRepository.buscaBrandAtravesId(carRequest.getBrand().getId());
+        categoriesRepository.buscaCategoriesAtravesId(carRequest.getBrand().getId());
         Cars car = carRepository.salva(new Cars(carRequest));
         log.info("[finish] BrandApplicationService - criaBrand ");
         return CarResponse.builder()
